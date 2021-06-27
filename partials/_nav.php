@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-     <a class="navbar-brand" href="/loginsystem">MONAART</a>
+     <a class="navbar-brand">MONAART</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
      </button>
 
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
                <li class="nav-item active">
                     <a class="nav-link" href="../loginsystem/welcome.php">Home </a>

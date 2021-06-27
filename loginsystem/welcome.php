@@ -52,11 +52,11 @@ $num = mysqli_num_rows($result);
      <div class="container my-3">
           <div class="alert bg-dark text-light" role="alert">
                <h4 class="alert-heading">Welcome - <?php echo $_SESSION['username'] ?></h4>
-               <p>Hey how are you doing? Welcome to Monaart. You are logged in as <?php echo $_SESSION['username'] ?>. Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-               <hr>
-               <p class="mb-0">Visit Your
+               <p>Hey how are you doing? Welcome to ARTISTRY. You are logged in as <?php echo $_SESSION['username'] ?>. Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+               <!-- <hr> -->
+               <!-- <p class="mb-0">Visit Your
                     <a href="profile.php" class="text-decoration-none text-info">Profile</a>
-               </p>
+               </p> -->
 
 
           </div>
@@ -67,14 +67,14 @@ $num = mysqli_num_rows($result);
 
           <form action="welcome.php" method="post" enctype="multipart/form-data">
                <div class="form-group p-3">
-                    <label for="file">file</label>
+                    <label for="file">Post Your Image</label>
                     <input type="file" class="form-control" id="file" name="file">
                </div>
                <div class="form-group p-3">
                     <label for="dec">Description</label>
                     <textarea class="form-control" id="dec" name="dec" required></textarea>
                </div>
-               <button type="submit" class="btn btn-primary mx-3 ">Upload</button>
+               <button type="submit" class="btn btn-dark mx-3 ">Upload</button>
           </form>
      </div>
      <main>

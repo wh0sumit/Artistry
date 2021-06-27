@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-     <a class="navbar-brand">MONAART</a>
+     <a class="navbar-brand">ARTISTRY</a>
      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
      </button>
@@ -7,13 +7,13 @@
      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
                <li class="nav-item active">
-                    <a class="nav-link" href="../loginsystem/welcome.php">Home </a>
+                    <a class="nav-link" href="../loginsystem/welcome.php">Explore </a>
                </li>
-               <li class="nav-item">
+               <!-- <!-- <li class="nav-item">
                     <a class="nav-link" href="../loginsystem/login.php">Login</a>
-               </li>
+               </li> -->
                <li class="nav-item">
-                    <a class="nav-link" href="../loginsystem/signup.php">Signup</a>
+                    <a class="nav-link" href="profile.php">Profile</a>
                </li>
                <li class="nav-item">
                     <a class="nav-link" href="../loginsystem/logout.php">Logout</a>

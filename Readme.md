@@ -52,4 +52,4 @@ I'll be adding more features in this websites like like share and comment and fo
 - Concise/digestible content for everyone to get started
 
 
-### Made with :heart:!
+### Made with :heart:

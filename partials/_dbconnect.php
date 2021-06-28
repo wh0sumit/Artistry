@@ -2,7 +2,7 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "HTM";
+$database = "artistry";
 
 $conn = mysqli_connect($server, $username, $password, $database);
 if (!$conn) {

@@ -6,9 +6,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
      exit;
 }
 
+$username = $_SESSION['username'];
+
 $insert = false;
 $update = false;
-$username = $_SESSION['username'];
+
 $sql = "SELECT * from `userupload` where username='$username'";
 $result = mysqli_query($conn, $sql);
 $num = mysqli_num_rows($result);
@@ -46,20 +48,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
      <!-- Required meta tags -->
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="stylesheet" href="./css/user.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      <title>Welcome - <?php echo  $username ?> </title>
 </head>
 
-<body>
+<body class="bg-light">
      <?php require '../partials/_nav.php' ?>
 
 
      <div class="container">
           <main>
-               <div class="py-5 text-center">
+               <div class="p-5 text-center">
                     <h2>Edit Profile</h2>
 
                     <?php

@@ -5,11 +5,32 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
      header("location: login.php");
      exit;
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$searchnameAlert = false;
+$notempty = false;
 
+if (isset($_POST['btn1'])) {
+
+     $searchname = $_POST['name'];
+     if ($searchname != "") {
+          $notempty = true;
+          $sql = "Select * from users where username='$searchname'";
+          $result_1 = mysqli_query($conn, $sql);
+          $num_1 = mysqli_num_rows($result_1);
+
+          if ($num_1 == 1) {
+               $searchnameAlert = true;
+          } else {
+               $showError = "No such user.";
+          }
+     }
+}
+if (isset($_POST['btn2'])) {
      $username = $_SESSION['username'];
      $dec = $_POST['dec'];
      $files = $_FILES["file"];
+
+
+
 
      $filename = $files['name'];
      $fileerror = $files['error'];
@@ -42,15 +63,16 @@ $num = mysqli_num_rows($result);
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-     <link rel="stylesheet" href="css/user.css">
+     <link rel="stylesheet" href="./css/user.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <title>Welcome - <?php echo $_SESSION['username'] ?></title>
+     <title><?php echo $_SESSION['username'] ?></title>
 </head>
 
 <body class="bg-light">
      <?php require '../partials/_nav.php' ?>
      <div class="container">
           <main>
+
                <div class="py-5 text-center">
 
                     <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
@@ -62,25 +84,32 @@ $num = mysqli_num_rows($result);
                               <span>Find Artists</span>
                               <!-- <span class="badge bg-primary rounded-pill">3</span> -->
                          </h4>
-                         <form class="card p-2">
+                         <form class="card p-2" action="welcome.php" method="post" name="form-1">
+
                               <div class="input-group">
-                                   <input type="text" class="form-control" placeholder="Serch Name">
-                                   <button type="submit" class="btn btn-1">Search</button>
+                                   <input type="text" class="form-control" placeholder="Serch UserName" name="name">
+                                   <button type="submit" class="btn btn-1" name="btn1">Search</button>
                               </div>
                          </form>
-                         <!-- <ul class="list-group mb-3">
-                              <li class="list-group-item d-flex justify-content-between lh-sm">
-                                   <div>
-                                        <h6 class="my-0">Product name</h6>
-                                   </div>
-                                   <span class="text-muted">$12</span>
-                              </li>
-                         </ul> -->
+                         <?php if ($notempty) {
+                              while ($row_1 = mysqli_fetch_array($result_1)) {
+                                   echo "
+                              <ul class='list-group mb-3'>
+                              <a class='my-0 text-decoration-none'>
+                                   <li class='list-group-item d-flex justify-content-between lh-sm my-2 rounded-3'>
+                                   ", $row_1['username'], "
+                                   </li>
+                              </a>
+                         </ul>";
+                              }
+                         } ?>
+
                     </div>
                     <div class="col-md-7 col-lg-8">
                          <h4 class="mx-3">Post Your ArtWork</h4>
 
-                         <form action="welcome.php" method="post" enctype="multipart/form-data">
+                         <form action="welcome.php" method="post" enctype="multipart/form-data" name="form-2">
+
                               <div class="form-group p-3">
                                    <input type="file" class="form-control" id="file" name="file">
                               </div>
@@ -88,7 +117,7 @@ $num = mysqli_num_rows($result);
                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="dec"></textarea>
                                    <label for="floatingTextarea2">Add Description</label>
                               </div>
-                              <button type="submit" class="btn btn-dark mx-3 ">Upload</button>
+                              <button type="submit" class="btn btn-dark mx-3 " name="btn2">Upload</button>
                          </form>
                     </div>
                </div>

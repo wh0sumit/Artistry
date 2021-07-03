@@ -28,7 +28,7 @@
                </li>
           </ul>
           <div class="d-flex ">
-               <!-- <a href="login.php" class="btn btn-1 px-4 fw-bold me-3 rounded-1">Profile</a> -->
+               <a href="../userpages/profile.php" class="btn btn-1 px-4 fw-bold me-3 rounded-1">Edit Profile</a>
                <a href="logout.php" class="btn btn-outline-dark fw-bold px-4 rounded-1">Logout</a>
           </div>
      </div>
